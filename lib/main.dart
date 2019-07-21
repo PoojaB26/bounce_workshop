@@ -1,3 +1,4 @@
+import 'package:bounce_workshop/routes.dart';
 import 'package:bounce_workshop/screens/list_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -12,7 +13,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: ListScreen(),
+        home: ListScreen(),
     );
   }
 }

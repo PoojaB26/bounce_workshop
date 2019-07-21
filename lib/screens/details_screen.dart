@@ -11,7 +11,16 @@ class DetailsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: IconButton(icon: Icon(Icons.arrow_back),
+        onPressed: () => Navigator.pop(context, "Hello"),),
         title: Text('Hi $username'),
+      ),
+      body:  Hero(
+        tag: 'heroTag',
+        child: Container(
+          alignment: Alignment.center,
+            height: 300,
+            child: Image.asset('assets/beer.png')),
       ),
     );
   }
