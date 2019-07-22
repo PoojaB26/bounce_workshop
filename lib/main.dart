@@ -1,3 +1,4 @@
+import 'package:bounce_workshop/ui/screens/details_screen.dart';
 import 'package:bounce_workshop/ui/screens/list_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -10,12 +11,14 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.red,
       ),
-        home: ListScreen(),
+      home: ListScreen(),
       routes: <String, WidgetBuilder>{
-        'list': (context) => ListScreen()
+        '/details' : (context) => DetailsScreen()
       },
     );
   }
 }
+
+
