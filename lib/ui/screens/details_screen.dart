@@ -1,3 +1,4 @@
+import 'package:bounce_workshop/services/api_services.dart';
 import 'package:flutter/material.dart';
 
 class DetailsScreen extends StatelessWidget {
@@ -17,12 +18,28 @@ class DetailsScreen extends StatelessWidget {
         onPressed: () => Navigator.pop(context, "Hello"),),
         title: Text('Hi $username'),
       ),
-      body:  Hero(
-        tag: 'heroTag$index',
-        child: Container(
-          alignment: Alignment.center,
-            height: 300,
-            child: Image.asset('assets/beer.png')),
+      body:  Column(
+        children: <Widget>[
+
+          FutureBuilder(
+        future: getDelayedResponse(),
+        builder: (context, snapshot){
+          if(snapshot.hasData)
+            return Text('${snapshot.data}');
+          else
+            return CircularProgressIndicator();
+        },
+      ),
+
+
+          Hero(
+            tag: 'heroTag$index',
+            child: Container(
+              alignment: Alignment.center,
+                height: 300,
+                child: Image.asset('assets/beer.png')),
+          ),
+        ],
       ),
     );
   }
