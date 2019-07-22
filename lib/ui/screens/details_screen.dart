@@ -4,8 +4,10 @@ class DetailsScreen extends StatelessWidget {
 
 
   final String username;
-  DetailsScreen({this.username})
-      : assert(username != null);
+  final int index;
+  DetailsScreen({this.username, this.index})
+      : assert(username != null),
+        assert(index!=null);
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +18,7 @@ class DetailsScreen extends StatelessWidget {
         title: Text('Hi $username'),
       ),
       body:  Hero(
-        tag: 'heroTag',
+        tag: 'heroTag$index',
         child: Container(
           alignment: Alignment.center,
             height: 300,
