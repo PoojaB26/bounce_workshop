@@ -8,6 +8,8 @@ class DetailsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    print(username);
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(

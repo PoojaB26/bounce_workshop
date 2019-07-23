@@ -1,11 +1,73 @@
 
+import 'package:bounce_workshop/ui/common/list_item.dart';
 import 'package:bounce_workshop/ui/screens/details_screen.dart';
 import 'package:flutter/material.dart';
 
-class ListScreen extends StatelessWidget {
+class ListScreen extends StatefulWidget {
+
+  final int something;
+  ListScreen({this.something});
+
+  @override
+  _ListScreenState createState() => _ListScreenState();
+}
+
+class _ListScreenState extends State<ListScreen> {
+
+
+
+
+
+
+
+
+  ThemeData theme = ThemeData.light();
+  bool isLightThemed = true;
+
+  toggle(){
+    isLightThemed = !isLightThemed;
+
+    setState(() {
+      if(isLightThemed)
+        theme = ThemeData.light();
+      else
+        theme = ThemeData.dark();
+    });
+  }
+
+
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    print(widget.something);
+    super.initState();
+  }
+
+
+  @override
+  void didChangeDependencies() {
+    // TODO: implement didChangeDependencies
+    super.didChangeDependencies();
+  }
+
+  @override
+  void didUpdateWidget(ListScreen oldWidget) {
+    // TODO: implement didUpdateWidget
+    super.didUpdateWidget(oldWidget);
+  }
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+  }
+
+
 
 
   final String username = 'John Dow';
+
   navigate(context){
     Route route = MaterialPageRoute(
       builder: (_)
@@ -16,32 +78,21 @@ class ListScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-     // backgroundColor: Colors.amber,
-      appBar: AppBar(),
+    return Theme(
+      child: Scaffold(
+        appBar: AppBar(),
 
-      body: Column(
-        children: <Widget>[
-          Text('Hello'),
-          RaisedButton(
-            onPressed: () => navigate(context),
-            child: Text('NAVIGATE'),
-          ),
-          Hero(
-            tag: 'heroTag',
-            child: Container(
-                height: 120,
-                child: Image.asset('assets/beer.png')
-            ),
-          )
-        ],
+        body: ListView.builder(
+            itemCount: 100,
+            itemBuilder: (context, index)
+            => ListItem(index: index)
+        ),
+
+        floatingActionButton: FloatingActionButton(
+          onPressed: () => toggle(),
+        ),
       ),
-
-
-      floatingActionButton: FloatingActionButton(
-        onPressed: () => {},
-      ),
-
+      data: theme,
     );
   }
 }
