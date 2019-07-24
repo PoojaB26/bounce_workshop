@@ -1,4 +1,4 @@
-import 'package:bounce_workshop/ui/notification_icon.dart';
+import 'package:bounce_workshop/ui/common/notification_icon.dart';
 import 'package:bounce_workshop/ui/popular_posts_list.dart';
 import 'package:bounce_workshop/ui/posts_data.dart';
 import 'package:bounce_workshop/ui/profile_data.dart';
