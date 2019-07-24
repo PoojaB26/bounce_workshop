@@ -2,8 +2,13 @@ import 'package:flutter/material.dart';
 
 
 class NotificationIcon extends StatelessWidget {
+
+  final int itemCount;
+  NotificationIcon(this.itemCount);
+
   @override
   Widget build(BuildContext context) {
+    print(itemCount);
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Stack(
@@ -15,7 +20,7 @@ class NotificationIcon extends StatelessWidget {
             child: CircleAvatar(
               radius: 8,
               backgroundColor: Colors.blue,
-              child: Text('5', style: TextStyle(color: Colors.white, fontSize: 11),),
+              child: Text('$itemCount', style: TextStyle(color: Colors.white, fontSize: 11),),
             ),
           ),
         ],

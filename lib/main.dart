@@ -1,3 +1,4 @@
+import 'package:bounce_workshop/ui/login/login_screen.dart';
 import 'package:bounce_workshop/ui/profile_page.dart';
 import 'package:flutter/material.dart';
 
@@ -10,9 +11,9 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch: Colors.red,
+        primarySwatch: Colors.blue,
       ),
-      home: ProfilePage(),
+      home: LoginScreen(),
     );
   }
 }
