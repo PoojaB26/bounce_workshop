@@ -1,5 +1,4 @@
-import 'package:bounce_workshop/ui/login/login_screen.dart';
-import 'package:bounce_workshop/ui/profile_page.dart';
+import 'package:bounce_workshop/stateful_demo.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
@@ -13,7 +12,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: LoginScreen(),
+      home: StatefulDemo(),
     );
   }
 }
