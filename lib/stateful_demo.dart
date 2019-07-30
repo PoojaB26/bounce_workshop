@@ -34,36 +34,20 @@ class PageOne extends StatefulWidget {
   PageOneState createState() => PageOneState();
 }
 
-class PageOneState extends State<PageOne> with AutomaticKeepAliveClientMixin {
-  int count;
-  bool checkValue;
-
-  @override
-  void initState() {
-    count = 0;
-    checkValue = true;
-    super.initState();
-  }
-
-  updateCheckBox(){
-    setState(() {
-      checkValue = !checkValue;
-    });
-  }
-
+class PageOneState extends State<PageOne>  {
   @override
   Widget build(BuildContext context) {
     print('inside PageOne build function');
 
     return Column(
       children: <Widget>[
-        WidgetOne(count),
-        WidgetTwo(checkValue, this),
+        WidgetOne(),
+        WidgetTwo(),
         RaisedButton(
           child: Text('Button'),
           onPressed: () {
             setState(() {
-              ++count;
+
             });
           },
         ),
@@ -71,73 +55,37 @@ class PageOneState extends State<PageOne> with AutomaticKeepAliveClientMixin {
     );
   }
 
-  @override
-  // TODO: implement wantKeepAlive
-  bool get wantKeepAlive => true;
 }
 
 class PageTwo extends StatelessWidget {
 
-  static int count = 0;
-
-  var widget = Container(
-    child: Text('$count'),
-  );
 
   @override
   Widget build(BuildContext context) {
-    ++count;
-
     print('inside PageTwo build function');
-    return widget;
+    return Container(
+      child: Text(0.toString()),
+    );
   }
 }
 
 
-class WidgetOne extends StatefulWidget {
-
-  final int count;
-  WidgetOne(this.count);
-
-  @override
-  WidgetOneState createState() => WidgetOneState();
-}
-
-class WidgetOneState extends State<WidgetOne> {
-
-  GlobalKey<WidgetOneState> widgetKey = new GlobalKey<WidgetOneState>();
-
-
+class WidgetOne extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
 
     print('one');
-    return Text( 'Counter ${widget.count}');
+    return Text( 'Counter 0');
   }
 }
 
 class WidgetTwo extends StatelessWidget {
 
-  final bool value;
-  final PageOneState parent;
-
-  final WidgetOneState state = new WidgetOneState();
-
-  WidgetTwo(this.value, this.parent);
-
-
-  printSomething(){
-    print('some');
-  }
-
   @override
   Widget build(BuildContext context) {
     print('two');
-    return Checkbox(
-      value: value,
-      onChanged: (val) => state.widgetKey.currentState.setState(printSomething),
-    );
+    return Text('Two');
   }
 }
 
