@@ -8,7 +8,6 @@ class NotificationIcon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print(itemCount);
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Stack(

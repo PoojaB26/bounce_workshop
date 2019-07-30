@@ -8,6 +8,9 @@ import 'package:flutter/material.dart';
 
 class ProfilePage extends StatefulWidget {
 
+  final String name;
+  ProfilePage({this.name});
+
   @override
   _ProfilePageState createState() => _ProfilePageState();
 }
@@ -15,11 +18,14 @@ class ProfilePage extends StatefulWidget {
 class _ProfilePageState extends State<ProfilePage> {
   static int itemCount = 5;
 
-
-
+  ifEven(itemCount){
+    return itemCount % 2 == 0;
+  }
 
   @override
   Widget build(BuildContext context) {
+
+    print(widget.name);
 
     final AppBar customAppBar = AppBar(
       backgroundColor: Colors.transparent,
@@ -42,8 +48,7 @@ class _ProfilePageState extends State<ProfilePage> {
           children: <Widget>[
             ProfileData(),
             PostsData(),
-            PopularPostsList(),
-            RecentPostsList()
+            ifEven(itemCount) ? PopularPostsList() : RecentPostsList(),
           ],
         ),
       ),

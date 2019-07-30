@@ -1,8 +1,32 @@
+import 'package:bounce_workshop/ui/profile_page.dart';
 import 'package:flutter/material.dart';
 
-class LoginScreen extends StatelessWidget {
+class LoginScreen extends StatefulWidget {
 
 
+  int number;
+  @override
+  _LoginScreenState createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
+
+
+  TextEditingController nameController;
+  TextEditingController passwordController;
+
+  @override
+  void initState() {
+    print(widget.number);
+    nameController = TextEditingController(text: "Pooja");
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    nameController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -20,8 +44,8 @@ class LoginScreen extends StatelessWidget {
             Container(
               width: width,
               child: TextField(
+                controller: nameController,
                 textAlign: TextAlign.center,
-                keyboardType: TextInputType.number,
                 decoration: new InputDecoration(
                     border: UnderlineInputBorder(
                       borderRadius: const BorderRadius.all(
@@ -30,7 +54,7 @@ class LoginScreen extends StatelessWidget {
                     ),
                     filled: true,
                     hintStyle: new TextStyle(color: Colors.grey[800]),
-//                    hintText: "Type in your text",
+                    hintText: "Type in your text",
                     fillColor: Colors.white),
               ),
             ),
@@ -42,7 +66,12 @@ class LoginScreen extends StatelessWidget {
               ),
               color: Colors.white,
               child: Text('Let\'s Go'),
-              onPressed: (){},
+              onPressed: (){
+                Navigator.of(context).pushReplacement(
+                    MaterialPageRoute(builder: (_) => ProfilePage(
+                      name : nameController.text
+                )));
+              },
             ),
           ],
         ),
