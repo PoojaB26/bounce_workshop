@@ -35,6 +35,7 @@ class PageOne extends StatefulWidget {
 }
 
 class PageOneState extends State<PageOne>  {
+
   @override
   Widget build(BuildContext context) {
     print('inside PageOne build function');
@@ -59,12 +60,12 @@ class PageOneState extends State<PageOne>  {
 
 class PageTwo extends StatelessWidget {
 
-
   @override
   Widget build(BuildContext context) {
+
     print('inside PageTwo build function');
     return Container(
-      child: Text(0.toString()),
+      child: Text('5'),
     );
   }
 }
@@ -75,17 +76,111 @@ class WidgetOne extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    print('one');
-    return Text( 'Counter 0');
+    print('widget one');
+    return Text( 'widget one');
   }
 }
 
 class WidgetTwo extends StatelessWidget {
 
+
   @override
   Widget build(BuildContext context) {
-    print('two');
-    return Text('Two');
+
+    print('widget two');
+    return Text('Widget two');
   }
 }
 
+
+
+
+//
+//class PageOne extends StatefulWidget {
+//
+//  @override
+//  PageOneState createState() => PageOneState();
+//}
+//
+//class PageOneState extends State<PageOne> with AutomaticKeepAliveClientMixin {
+//
+//  bool value = true;
+//  int count = 0;
+//
+//  changeValue(){
+//    setState(() {
+//      print(value);
+//      value = !value;
+//    });
+//
+//  }
+//
+//  @override
+//  Widget build(BuildContext context) {
+//    print('inside StatefulDemo build function');
+//
+//    return Column(
+//      children: <Widget>[
+//        WidgetOne(counter: count,),
+//        WidgetTwo(value: value, parent: this,),
+//        RaisedButton(
+//          child: Text('Change Count'),
+//          onPressed: () {
+//            setState(() {
+//              ++count;
+//            });
+//          },
+//        ),
+//      ],
+//    );
+//  }
+//
+//  @override
+//  bool get wantKeepAlive => true;
+//}
+//
+//class PageTwo extends StatelessWidget {
+//
+//  static int count = 0;
+//  var widget = Container(
+//    child: Text('$count'),
+//  );
+//
+//  @override
+//  Widget build(BuildContext context) {
+//    ++count;
+//    print('pagetwo');
+//
+//    return widget;
+//  }
+//}
+//
+//
+//
+//class WidgetOne extends StatelessWidget {
+//  final int counter;
+//  WidgetOne({this.counter});
+//
+//
+//  @override
+//  Widget build(BuildContext context) {
+//    print('one');
+//    return Text(counter.toString());
+//  }
+//}
+//
+//class WidgetTwo extends StatelessWidget {
+//
+//  final PageOneState parent;
+//  final bool value;
+//  WidgetTwo({this.value, this.parent});
+//
+//  @override
+//  Widget build(BuildContext context) {
+//    print('two');
+//    return Checkbox(
+//      onChanged: (bool) => parent.changeValue(),
+//      value: value,
+//    );
+//  }
+//}
